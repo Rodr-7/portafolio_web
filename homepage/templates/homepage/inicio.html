@@ -1,4 +1,4 @@
-{% extends "perfiles/base.html"%}
+{% extends "homepage/base.html"%}
 
 {% block title %}Inicio — Perfiles{%endblock%}
 
@@ -10,7 +10,7 @@
   <h2>Personas</h2>
   <ul>
     <!-- Más adelante estos enlaces vendrán de la base de datos -->
-    <li><a href="#">Perfil de Persona 1</a></li>
+    <li><a href="{% url 'perfil' %}">Ir a Perfil de Rodrigo</a></li>
     <li><a href="#">Perfil de Persona 2</a></li>
   </ul>
 </section>

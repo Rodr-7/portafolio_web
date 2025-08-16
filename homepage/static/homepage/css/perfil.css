@@ -1,0 +1,252 @@
+/* Colores a usar en la pagina */
+:root {
+  --color-1: #6751e4  ;
+  --color-2: #eee8db ;
+  --color-3: #b4ccb9  ;
+  --color-4: #2bb9c4  ;
+  --color-5: #253332   ;
+  --color-6:rgb(9, 110, 150)  ;
+  --color-7: #09923e  ;
+  --color-8: #a3e0ba  ;
+
+
+}
+
+/*------------------------------------------ AJUSTES GENERALES /*---------------------------------------------------------*/
+/* Centrar todo el contenido del body */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Montserrat', 'Quicksand', Arial, sans-serif;
+  background: linear-gradient(140deg, #26979f, var(--color-3), var(--color-3), #549761);
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+}
+
+/* Contenedor principal para limitar el ancho */
+main, .cabeceras, .cabecera1, .cabecera2, .datos, #parrafo1, .pie {
+  width: 100%;              /* El ancho ocupa todo el espacio disponible del contenedor padre */
+  max-width: 700px;         /* El ancho máximo será de 600 píxeles, aunque el 100% sea mayor */
+  box-sizing: border-box;   /* Incluye el padding y el borde dentro del ancho total del elemento */
+  margin: 0 auto;           /* Centra el elemento horizontalmente (margen izquierdo y derecho automáticos) */
+  text-align: left;       /* Alinea el texto y los elementos en línea dentro del contenedor */
+}
+
+h1{color: #ffffff;
+    font-family: "Caudex";
+    font-size: 45px;
+    background-color: var(--color-6);
+    box-shadow: 0 0 40px 10px #253c57; /* Sombra en los bordes en donde n1=desplazamiento horizontal de la sombra, n2=desplazamiento vertical de la sombra ,n3=desenfoque de la sombra  ,n4=extensión de la sombra y n5=  color de la sombra */
+    background-size: cover; /* Ajusta el fondo para cubrir todo el área */
+    background-repeat: no-repeat; /* La propiedad background-repeat controla si una imagen de fondo se repite (se "tilea") dentro de un elemento (repeat es su valor por defecto)  */
+    background-position: center; /* Centra el fondo */
+    position: fixed; /* Fija el elemento en su posición */
+    top: 0; /* Lo posiciona en la parte superior de la página */
+    left: 0; /* Lo alinea al lado izquierdo */
+    width: 100%; /* Hace que ocupe todo el ancho */
+    text-align: center; /* Centra el texto */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    height: 70px; /* Define una altura fija para el h1 */
+    line-height: 70px; /*  ajustar line-height igual a la altura del <h1> para que el texto se vea centrado verticalmente */
+    margin-top: 0px; /* Elimina el margen superior */
+}
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------  Tarjeta de datos + foto de perfil  ---------------------------------------------------------*/
+.cabeceras {
+  margin-top: 116px;
+  background-color: var(--color-1);
+  padding: 10px;
+  border-radius: 10px;
+  color: #ffffff ;
+  font-size: 20px;
+}
+
+
+.cabecera1 {
+  display: flex;
+  align-items: center;     /* Centra verticalmente los elementos */
+  gap: 1rem;               /* Espacio entre los elementos */
+}
+.cabeceras > * {font-family: "Quicksand";}
+
+.cabecera2 p{
+  word-break: break-word; /* Permite que las palabras largas se dividan en varias líneas si es necesario */
+  overflow: hidden;
+  max-height: 42px;
+  /*transition: max-height 1s ease;*/ /*Aplica una transición  de x segundos cuando la propiedad height cambia. ease significa que la animación empieza lenta, se acelera en el medio y termina lenta.*/
+}
+
+.cabeceras p {
+  background-color: var(--color-1);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.6s;
+}
+
+
+/* Imagenes responsivas */
+img {
+  max-width: 100%;
+  height: 150px;
+  display: block;
+  margin: 1 auto;
+  margin-left: auto;
+  border-radius: 10px;
+}
+/*-------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------  Tarjeta de cualidades + imagen de referencia  ---------------------------------------------------------*/
+.datos{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;     /* Alinea los elementos al centro verticalmente */
+  gap: 1rem;  } /* Espacio entre los elementos */
+
+.datos > * { /*Para definir un mismo parametro para todos los elementos dentro de un <div>*/
+  background-color: var(--color-2);
+  font-family: "Quicksand";
+  font-size: 18px;
+}
+
+.datos img{
+  background-color: #00000000;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.datos ul, .datos p{
+    background-color: var(--color-7);
+    color: #ffffff;
+    padding: 10px;
+    height: max-content;
+    /*width: max-content;*/ /*para que se ajuste automáticamente al ancho de su contenido*/
+    padding-left: 20px; /* si lo quito los puintos de la lista se ven fuera*/
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.datos p{
+    background-color: var(--color-6);
+    word-break: break-word;
+    word-wrap: break-word;
+    background-color: #00000000;
+
+}
+.datos li{    
+    max-width: 310px;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+.columna-derecha {text-align: right; padding-left: 20px;} /*ajustes unicamente a la culuumna derecha de la tabla*/
+
+/*-------------------------  MI  CANCION  ------------------------------------------------------------------------------------------*/
+.cancion {background-color: #00000000;
+          border:#00000000;
+          align-items: center;
+          padding: 0%;
+          }
+
+#cancion0 {border:#00000000;
+background-color: #1b548f;
+height: 180px;}
+iframe {
+  height: 180px;
+  padding-bottom: 0%;
+  
+}
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------  Parrafo de experiencias ---------------------------------------------------------*/
+
+#experiencias p{  
+  height: max-content;          
+  background-color: #f8ee8f;
+  padding: 10px;
+  border-radius: 10px;
+  color: #000000 ;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  word-break: break-word; /* Permite que las palabras largas se dividan en varias líneas si es necesario */
+  overflow: hidden;
+
+}
+
+#experiencias p {
+  background-color: var(--color-2);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.6s;
+}
+
+#experiencias #experiencia0 {background-color: var(--color-8);
+  border-color: #555;
+}
+/*
+#experiencia0:hover {
+  background-color: #f3f3f3;
+}
+*/
+
+#Captura1{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+#Captura2{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+#Captura3{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+  align-content: center;
+}
+#Captura4{
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+  align-content: center;
+}
+
+/* Pie de página */
+.pie {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  color: #555;
+  font-size: 0.95em;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  main, .cabeceras, .cabecera1, #parrafo1, .pie {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+}
+
