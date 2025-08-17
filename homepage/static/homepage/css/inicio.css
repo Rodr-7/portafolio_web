@@ -1,0 +1,39 @@
+h1{
+    font-size: 45px;
+    background-color: #1413131f;
+    background-size: cover; /* Ajusta el fondo para cubrir todo el área */
+    background-repeat: no-repeat; /* La propiedad background-repeat controla si una imagen de fondo se repite (se "tilea") dentro de un elemento (repeat es su valor por defecto)  */
+    background-position: center; /* Centra el fondo */
+    top: 0; /* Lo posiciona en la parte superior de la página */
+    left: 0; /* Lo alinea al lado izquierdo */
+    width: 100%; /* Hace que ocupe todo el ancho */
+    text-align: left; /* Centra el texto */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    height: 70px; /* Define una altura fija para el h1 */
+    line-height: 70px; /*  ajustar line-height igual a la altura del <h1> para que el texto se vea centrado verticalmente */
+    margin-top: 0px; /* Elimina el margen superior */
+}
+
+body {
+  background: linear-gradient(140deg, #26979f, var(--color-3), var(--color-3), #549761);
+}
+
+.text-primary {
+    color:black;
+    text-align: center;
+}
+.container {
+    justify-content: center; /* centra horizontalmente */
+    max-width: 1200px; /* ancho máximo del contenido */
+    width: 90%; /* ocupa el 90% de la pantalla en pantallas pequeñas */
+    margin: 0 auto; /* centra el bloque */
+}
+
+section {
+    display: flex;
+
+}
+
+.card {
+    margin: 10px;
+}
