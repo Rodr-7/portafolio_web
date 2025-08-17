@@ -7,6 +7,7 @@
         Ficha Personal
     </title>
     <link rel="stylesheet" href="{% static 'homepage/css/perfil.css' %}"> <!--Link al CSS -->
+    <script src="{% static 'homepage/js/perfil.js' %}"> </script> <!--Link al CSS -->
     <link rel="icon" type="image/png" href={% static "homepage/img/favicon.png"%}>  <!--Link al favicon -->
     <!--Link a las tipografias externas que se usaran-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,14 +82,6 @@
 <p id="proyectos"><strong>Mis Proyectos</strong><br>
 Luego de haber terminado satisfactoriamente el segundo semestre de Analista Programador, y aun siendo muy primerizo en cuanto al desarrollo de software y la programación, decidí dedicar mis vacaciones de verano, aprovechando mi tiempo libre para desarrollar un juego de tipo RPG en Python. <br>
 Este proyecto comenzó como una practica en el uso de clases, cuando intentaba asimilar el concepto de programación orientada a objetos. Bajo esta lógica, programé 5 clases de personaje diferentes: Caballero, Mago, Berserker, Exorcista y Alquimista, los cuales se enfrentan en combates por turno de uno contra uno. Esto desencadeno el desarrollo de "Code of Legends".<br>
-<img id="Captura1" src= {% static "homepage/img/Captura1.png"%} alt="">
-Las nociones de Python que tuve que aprender a usar por primera vez para desarrollar Code of Legends segun mi vision fueron varias: la biblioteca Pandas para registrar personajes, guardar y leer sus cambios de stats (Nivel, Fuerza, Inteligencia, Defensa, Karma Y Vida), o aprender desde cero la construcción de interfaces graficas con Tkinter, son las principales. Junto a esto, existe un concepto en la Programacion Orientada a Objetos que exploté al máximo: el polimorfismo.<br>
-<img id="Captura2" src="Captura2.png" alt="">
-Cuando dos clases distintas tienen métodos con el mismo nombre, pero con comportamientos diferentes, estamos hablando de polimorfismo en programación orientada a objetos. Pues bien, el método atacar, usado para infligir daño al contrincante en Code of Legends, funciona de formas totalmente diferentes en cada clase de personaje. Por ejemplo, mientras un personaje de la clase Caballero infringe daño con la suma de sus stats de Fuerza y Arma restándose a la Defensa de su contrincante, un Alquimista usará su Arma, su Fuerza y cierto porcentaje de su inteligencia, restándose ante el stat defensivo más bajo del contrincante (Defensa o Karma).<br>
-<img id="Captura3" src="Captura3.png" alt="">
-Hubo gran cantidad de ideas que se quedaron en el tintero, pero el objetivo inicial que me impuse era tener algo usable y con una interfaz grafica antes de marzo. En su version 0.0.1, compilada la primera semana de marzo, es posible registrar un personaje, elegir entre uno existente y utilizar este para combatir contra un enemigo cuya clase, nombre y acciones durante cada turno son aleatorias, mientras que su nivel se equipara automaticamente al del personaje jugador. En dicha version, el personaje del jugador esta capacitado para subir de nivel, registrandose los cambios respectivos de sus stats en un archivo CSV junto al del resto de personajes creados. Y pues nada, misión cumplida.
-<img id="Captura4" src="Captura4.png" alt="">
-
 
 </p>
 </div>
