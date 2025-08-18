@@ -1,39 +1,95 @@
-h1{
-    font-size: 45px;
-    background-color: #1413131f;
-    background-size: cover; /* Ajusta el fondo para cubrir todo el área */
-    background-repeat: no-repeat; /* La propiedad background-repeat controla si una imagen de fondo se repite (se "tilea") dentro de un elemento (repeat es su valor por defecto)  */
-    background-position: center; /* Centra el fondo */
-    top: 0; /* Lo posiciona en la parte superior de la página */
-    left: 0; /* Lo alinea al lado izquierdo */
-    width: 100%; /* Hace que ocupe todo el ancho */
-    text-align: left; /* Centra el texto */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    height: 70px; /* Define una altura fija para el h1 */
-    line-height: 70px; /*  ajustar line-height igual a la altura del <h1> para que el texto se vea centrado verticalmente */
-    margin-top: 0px; /* Elimina el margen superior */
+/* Paleta sobria (oscura) con acento petróleo */
+:root{
+  /* Sobrescribe el color primario de Bootstrap para .text-primary y .btn-primary */
+  --bs-primary: #5db1a4;
+
+  --bg-body: #0f1520;
+  --bg-section: #151b28;
+  --text-base: #cfd6e6;
+  --text-muted: #9aa3b2;
+  --title: #e8ecf5;
+  --stroke: #273043;
+  --accent-strong: #4ba797;
 }
 
-body {
-  background: linear-gradient(140deg, #26979f, var(--color-3), var(--color-3), #549761);
+/* --------- Base --------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body.bg-body{
+  background:
+    radial-gradient(1200px 800px at 10% -10%, #1b2433 0%, var(--bg-body) 35%) no-repeat fixed;
+  color: var(--text-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.text-primary {
-    color:black;
-    text-align: center;
-}
-.container {
-    justify-content: center; /* centra horizontalmente */
-    max-width: 1200px; /* ancho máximo del contenido */
-    width: 90%; /* ocupa el 90% de la pantalla en pantallas pequeñas */
-    margin: 0 auto; /* centra el bloque */
-}
+/* Titulares */
+.text-title{ color: var(--title); }
 
-section {
-    display: flex;
+/* Párrafos y texto secundario */
+.text-muted{ color: var(--text-muted) !important; }
 
+/* Sección principal con tarjetas
+   Mantenemos la estructura original: <section> con .card como hijos directos */
+section{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
 
-.card {
-    margin: 10px;
+/* Tarjetas (visuales más elegantes) */
+.profile-card{
+  background-color: #111827;             /* cercano a Tailwind slate-900 */
+  border: 1px solid var(--stroke);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.profile-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.28);
+  border-color: rgba(93,177,164,.45);
+}
+
+/* Imagen de tarjeta: mantener proporción y recorte suave */
+.card-img-top{
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  filter: saturate(.9);
+  height: 2px;
+}
+
+/* Botón primario (coherente con --bs-primary) */
+.btn-primary{
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: var(--accent-strong);
+  --bs-btn-hover-border-color: var(--accent-strong);
+  --bs-btn-color: #0b1412;
+}
+
+/* Contenedor y encabezados */
+.container{ border-top: 1px solid var(--stroke); }
+h1{ color: var(--title); margin-top: 2.5rem; }
+h2{ color: var(--title); }
+
+/* Footer */
+footer{
+  margin-top: 1rem;
+  padding: .85rem 0;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid var(--stroke);
+  background: rgba(0,0,0,.12);
+}
+
+/* Accesibilidad: focus visible */
+:focus-visible{
+  outline: 2px solid var(--bs-primary);
+  outline-offset: 2px;
+}
+
+/* Ajustes responsivos mínimos */
+@media (max-width: 576px){
+  .lead{ font-size: 1.05rem; }
 }

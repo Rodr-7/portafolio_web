@@ -1,0 +1,131 @@
+/* Paleta sobria: grises fríos + acento petróleo */
+:root{
+  --bg-body: #0f1520;           /* gris-azulado muy oscuro */
+  --bg-section: #151b28;        /* un paso más claro para secciones */
+  --text-base: #cfd6e6;         /* texto principal suave */
+  --text-muted: #9aa3b2;        /* texto secundario */
+  --title: #e8ecf5;             /* títulos */
+  --card: #0f1520;              /* tarjetas claras sobre fondo intermedio */
+  --stroke: #273043;            /* bordes sutiles */
+  --accent: #5db1a4;            /* verde petróleo elegante */
+  --accent-strong: #4ba797;     /* acento hover */
+  --accent-subtle: #23343a;     /* fondo sutil de acento */
+}
+
+/* --------- Reset/ajustes generales --------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body.bg-body{
+  background: radial-gradient(1200px 800px at 10% -10%, #1b2433 0%, var(--bg-body) 35%) no-repeat fixed;
+  color: var(--text-base);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Textos */
+.text-title { color: var(--title); }
+.text-secondary { color: var(--text-muted) !important; }
+
+/* Secciones */
+.bg-section { background-color: var(--bg-section); }
+
+/* Navbar */
+.bg-nav { background: rgba(15,21,32,0.85); backdrop-filter: blur(8px); }
+.navbar .nav-link { color: var(--text-base); opacity: .9; }
+.navbar .nav-link:hover, .navbar .nav-link:focus { color: var(--title); opacity: 1; }
+.navbar-brand { color: var(--title) !important; }
+
+/* Botones de acento */
+.btn-accent{
+  --bs-btn-color: #0b1412;
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent-strong);
+  --bs-btn-hover-border-color: var(--accent-strong);
+}
+.btn-outline-accent{
+  --bs-btn-color: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent);
+  --bs-btn-hover-color: #0b1412;
+  --bs-btn-hover-border-color: var(--accent);
+}
+
+/* Badges de acento y tags */
+.bg-accent-subtle{ background-color: var(--accent-subtle) !important; }
+.text-accent{ color: var(--accent) !important; }
+.bg-tag{
+  background: rgba(93,177,164,0.15);
+  color: var(--text-base);
+  border: 1px solid rgba(93,177,164,0.25);
+}
+
+/* Hero */
+.hero{
+  padding: 4.5rem 0 3rem;
+  background:
+    radial-gradient(700px 450px at 90% -10%, rgba(93,177,164,0.18) 0%, rgba(93,177,164,0) 70%),
+    linear-gradient(180deg, rgba(35,50,58,0.35) 0%, rgba(21,27,40,0) 60%);
+  border-bottom: 1px solid var(--stroke);
+}
+.hero-avatar{
+  max-width: 220px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Títulos de sección */
+.section-title{
+  font-weight: 600;
+  color: var(--title);
+  margin-bottom: 1.25rem;
+}
+
+/* Tarjetas y contenedores */
+.card-quiet{
+  background-color: var(--card);
+  border: 1px solid var(--stroke);
+}
+.project-card{
+  background-color: var(--card);
+  border: 1px solid var(--stroke);
+}
+.project-card .card-img-top{
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  filter: saturate(0.85);
+}
+
+/* Timeline de experiencia */
+.timeline-item{
+  border: 1px solid var(--stroke);
+}
+
+/* Progreso suave */
+.soft-progress{
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.progress-bar.bg-accent{
+  background-color: var(--accent) !important;
+}
+
+/* Enlaces y estados */
+a, .hover-accent{ transition: color .2s ease, background .2s ease, border-color .2s ease, filter .2s ease; }
+.hover-accent:hover{ color: var(--accent) !important; filter: brightness(1.1); }
+
+/* Footer */
+footer{ background: rgba(0,0,0,0.1); }
+
+/* Accesibilidad: focus visible */
+:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Ajustes responsivos mínimos */
+@media (max-width: 991.98px){
+  .hero{ padding: 3rem 0 2rem; }
+}
+

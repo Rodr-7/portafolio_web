@@ -9,3 +9,6 @@ def inicio(request):
 
 def perfil(request):
     return render(request, "homepage/perfil.html")
+
+def perfil2(request):
+    return render(request, "homepage/perfil2.html")
