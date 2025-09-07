@@ -1,262 +1,108 @@
-{% load static %}
-{% block content %}
+{% load static %} {# habilita la etiqueta {% static %} de Django #}
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio Web</title>
-
-  <!-- Bootstrap 5 -->
+  <meta charset="UTF-8"> <!-- soporte de caracteres como la ñ y emojis-->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- para que sea responsive -->
+  <title>Portafolio Web</title> <!-- título del navegador -->
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- JS Bootstrap (opcional para componentes interactivos) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- CSS personalizado -->
+  <!-- CSS personal -->
   <link rel="stylesheet" href="{% static 'homepage/css/inicio.css' %}">
 </head>
+<body class="bg-body"> <!-- body de fondo claro de Bootstrap -->
 
-<body class="bg-body">
-  <h1 class="text-center display-5 fw-semibold text-primary mb-2">Bienvenido</h1>
+  <!-- -------------      Cabecera de navbar bootstrap        ------------- -->
+  <h1 class="text-center display-6 fw-semibold text-primary mt-3">Bienvenido</h1>
+  <p class="lead text-muted text-center px-3 mb-4">
+    Página de Perfiles Profesionales con acceso por Login/Registro.<br>  <!-- Quitar la siguiente linea tras habilitar login --> 
+    <b>IMPORTANTE:</b> En esta version las funciones de login estan deshabilitadas, puede accederse a los perfiles sin necesidad de loguearse
 
-  <p class="lead text-muted text-center px-3">
-    Bienvenido/a, esta es nuestra página de Perfiles Profesionales.<br>
-    Estás en el sitio principal, en donde podrás ver la lista de perfiles registrados en una interfaz de tarjetas.
-    Este será el inicio de los perfiles.
   </p>
-
-  <!-- [LOGIN] Banner de sesión (agregado). No altera el contenido original -->
-<!-- [LOGIN] Banner de sesión (único y balanceado) -->
-<div class="container mb-3">
-  {% if user.is_authenticated %}
-    <div class="alert alert-success d-flex align-items-center justify-content-between" role="alert">
-      <div>Sesión iniciada como <strong>{{ user.get_username }}</strong>.</div>
-      <a class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}">Cerrar sesión</a>
-    </div>
-  {% else %}
-    <div class="alert alert-info d-flex align-items-center justify-content-between" role="alert">
-      <div>Para ver los perfiles completos, inicia sesión o regístrate.</div>
-      <div class="d-flex gap-2">
-        <!-- Abre el modal en la pestaña de Login -->
-        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-          Iniciar sesión
-        </button>
-        <!-- Abre el mismo modal pero forzando pestaña de Registro -->
-        <button class="btn btn-sm btn-outline-primary open-signup" data-bs-toggle="modal" data-bs-target="#loginModal">
-          Registrarse
-        </button>
-
+  
+  <!-- -------------      Banner de sesion (si está logueado y si no)        ------------- -->
+    <div class="container mb-3">
+      <!-- condicional if si el usuario está autenticado, muestra su nombre y un boton para cerrar sesión y si no, muestra botones para iniciar sesion o registrarse -->
+    {% if user.is_authenticated %} {# si el usuario está autenticado #}
+      <div class="alert alert-success d-flex justify-content-between align-items-center">
+        <span>Sesión: <strong>{{ user.get_username }}</strong></span>
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}">Cerrar sesión</a> {# enlace para cerrar sesion #}
       </div>
-    </div>
-  {% endif %}
-</div>
-
-
-  <div class="container pb-5">
-    <h2 class="h4 text-title mb-4">Profesionales</h2>
-
-    <section>
-      <div class="card profile-card shadow-sm">
-        <img src="{% static 'homepage/img/no-photo.webp' %}" class="card-img-top" alt="Foto de perfil 1">
-        <div class="card-body">
-          <h5 class="card-title">Yazmina Fuentes</h5>
-          <p class="card-text text-secondary">
-            Some quick example text to build on the card title and make up the bulk of the card’s content.
-          </p>
-          <a href="{% url 'perfil2' %}" class="btn btn-primary">Ir al perfil</a>
+    {% else %} {# si el usuario no está autenticado #}
+      <div class="alert alert-info d-flex justify-content-between align-items-center"> {# si no está autenticado #}
+        <span>Para ver perfiles completos, inicia sesión o regístrate.</span>
+        <div class="d-flex gap-2">
+          <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#authModal">Iniciar sesión</button>
+          <button class="btn btn-sm btn-outline-primary open-signup" data-bs-toggle="modal" data-bs-target="#authModal">Registrarse</button>
         </div>
       </div>
-
-      <div class="card profile-card shadow-sm">
-        <img src="{% static 'homepage/img/no-photo.webp' %}" class="card-img-top" alt="Foto de perfil 2">
-        <div class="card-body">
-          <h5 class="card-title">Rodrigo Albornoz</h5>
-          <p class="card-text text-secondary">
-            Some quick example text to build on the card title and make up the bulk of the card’s content.
-          </p>
-          <a href="{% url 'perfil' %}" class="btn btn-primary">Ir al perfil</a>
-        </div>
+    {% endif %}
+  </div>
+<!-- NOTA: if user.is_authenticated: muestra contenido segun el estado de sesión.
+            Botones abren el mismo modal; “Registrarse” luego cambia a la pestaña de registro (hay que hacerlo con JS).
+-->
+  <!-- -------------      tarjeta de perfil de ejemplo (el JS debe controlar acceso))        ------------- -->
+   <!-- Tarjeta de perfil de ejemplo 1 -->
+  <div class="container mb-5">
+    <div class="card shadow-sm profile-card" style="max-width: 420px;">
+      <img src="{% static 'homepage/img/no-photo.webp' %}" class="card-img-top" alt="Foto de perfil">
+      <div class="card-body">
+        <h5 class="card-title">Perfil de Ejemplo</h5>
+        <p class="card-text text-secondary">Descripción breve del profesional.</p>
+        <a href="{% url 'perfil2' %}" class="btn btn-primary">Ir al perfil</a>
       </div>
-    </section>
+    </div>
   </div>
 
-  <!-- [LOGIN] Modal de Login (agregado). Mantiene el HTML original intacto -->
-    <!-- [LOGIN] + [SIGNUP] Modal con pestañas. Mantiene el HTML original y añade registro -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+   <!-- Tarjeta de perfil de ejemplo 2 -->
+  <div class="container mb-5">
+    <div class="card shadow-sm profile-card" style="max-width: 420px;">
+      <img src="{% static 'homepage/img/no-photo.webp' %}" class="card-img-top" alt="Foto de perfil">
+      <div class="card-body">
+        <h5 class="card-title">Perfil de Ejemplo</h5>
+        <p class="card-text text-secondary">Descripción breve del profesional.</p>
+        <a href="{% url 'perfil2' %}" class="btn btn-primary">Ir al perfil</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- NOTA: El enlace “Ir al perfil” se intercepta si no hay sesion y se abrira el modal en lugar de navegar.-->
+  <!-- -------------      Modal único con pestañas para login/registro)        ------------- -->
+  <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow">
         <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Acceso</h5>
+          <h5 class="modal-title">Acceso</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
 
-        <!-- Nav de pestañas (Login / Registro) -->
+        <!-- Pestañas -->
         <ul class="nav nav-tabs px-3 pt-2" id="authTabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="tab-login" data-bs-toggle="tab" data-bs-target="#pane-login" type="button" role="tab" aria-controls="pane-login" aria-selected="true">Iniciar sesión</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-signup" data-bs-toggle="tab" data-bs-target="#pane-signup" type="button" role="tab" aria-controls="pane-signup" aria-selected="false">Crear cuenta</button>
-          </li>
+          <li class="nav-item"><button class="nav-link active" id="tab-login"  data-bs-toggle="tab" data-bs-target="#pane-login"  type="button">Iniciar sesión</button></li>
+          <li class="nav-item"><button class="nav-link"         id="tab-signup" data-bs-toggle="tab" data-bs-target="#pane-signup" type="button">Crear cuenta</button></li>
         </ul>
 
-        <div class="tab-content p-3">
-          <!-- ===== Pestaña Login ===== -->
-          <div class="tab-pane fade show active" id="pane-login" role="tabpanel" aria-labelledby="tab-login" tabindex="0">
-            <!-- Importante: esta vista necesita una URL con name='login' -->
-            <form method="post" action="{% url 'login' %}">
-              {% csrf_token %}
-              <!-- [LOGIN] Campo oculto para redirigir a la URL que el usuario intentó abrir -->
-              <input type="hidden" name="next" id="login-next-input" value="/" />
 
-              {% if form and form.non_field_errors %}
-                <div class="alert alert-danger py-2">{{ form.non_field_errors }}</div>
-              {% endif %}
 
-              <div class="mb-3">
-                <label for="id_username" class="form-label">Usuario</label>
-                <input type="text" name="username" autofocus required class="form-control" id="id_username" autocomplete="username">
-              </div>
 
-              <div class="mb-3">
-                <label for="id_password" class="form-label">Contraseña</label>
-                <input type="password" name="password" required class="form-control" id="id_password" autocomplete="current-password">
-              </div>
 
-              <div class="d-flex justify-content-end gap-2">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Entrar</button>
-              </div>
-            </form>
-          </div>
 
-          <!-- ===== Pestaña Registro ===== -->
-          <div class="tab-pane fade" id="pane-signup" role="tabpanel" aria-labelledby="tab-signup" tabindex="0">
-            <!-- [SIGNUP] Usa por defecto UserCreationForm (username, password1, password2) -->
-            <!-- Requiere una URL con name='signup' que procese el registro -->
-            <form method="post" action="{% url 'signup' %}">
-              {% csrf_token %}
 
-              <!-- Muestra errores generales si los hay (por ejemplo, usuario ya existe) -->
-              {% if signup_form and signup_form.non_field_errors %}
-                <div class="alert alert-danger py-2">{{ signup_form.non_field_errors }}</div>
-              {% endif %}
 
-              <div class="mb-3">
-                <label for="id_signup_username" class="form-label">Usuario</label>
-                <input type="text" name="username" required class="form-control" id="id_signup_username" autocomplete="username">
-              </div>
 
-              <div class="mb-3">
-                <label for="id_signup_password1" class="form-label">Contraseña</label>
-                <input type="password" name="password1" required class="form-control" id="id_signup_password1" autocomplete="new-password">
-              </div>
 
-              <div class="mb-3">
-                <label for="id_signup_password2" class="form-label">Repite la contraseña</label>
-                <input type="password" name="password2" required class="form-control" id="id_signup_password2" autocomplete="new-password">
-              </div>
 
-              <small class="text-muted d-block mb-3">Si quieres capturar email u otros datos, crea un formulario personalizado en Django y añádelo aquí.</small>
 
-              <div class="d-flex justify-content-end gap-2">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Crear cuenta</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- [SIGNUP] Modal de Registro (nuevo agregado) -->
-  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0 shadow">
-        <div class="modal-header">
-          <h5 class="modal-title" id="signupModalLabel">Registrarse</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
 
-        <!-- Importante: necesita una vista/URL con name='signup' -->
-        <form method="post" action="{% url 'signup' %}">
-          {% csrf_token %}
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="id_new_username" class="form-label">Usuario</label>
-              <input type="text" name="username" required class="form-control" id="id_new_username">
-            </div>
 
-            <div class="mb-3">
-              <label for="id_new_email" class="form-label">Correo electrónico</label>
-              <input type="email" name="email" required class="form-control" id="id_new_email">
-            </div>
 
-            <div class="mb-3">
-              <label for="id_new_password1" class="form-label">Contraseña</label>
-              <input type="password" name="password1" required class="form-control" id="id_new_password1">
-            </div>
 
-            <div class="mb-3">
-              <label for="id_new_password2" class="form-label">Confirmar contraseña</label>
-              <input type="password" name="password2" required class="form-control" id="id_new_password2">
-            </div>
 
-            <small class="text-muted">Al registrarte aceptas los términos de uso.</small>
-          </div>
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-success">Crear cuenta</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
-  <!-- [LOGIN] Script de compuerta de login (agregado). No modifica tus enlaces -->
-    <!-- [LOGIN] Script de compuerta + [SIGNUP] cambio de pestaña -->
-  <script>
-    // Exponer si el usuario está autenticado sin romper el HTML original
-    const IS_AUTH = {{ user.is_authenticated|yesno:"true,false" }};
 
-    document.addEventListener('DOMContentLoaded', function () {
-      // Interceptar clics en enlaces a perfiles si NO hay sesión
-      const links = document.querySelectorAll('.profile-card a.btn');
-      const nextInput = document.getElementById('login-next-input');
-      const loginModalEl = document.getElementById('loginModal');
-      const modal = loginModalEl ? new bootstrap.Modal(loginModalEl) : null;
 
-      links.forEach(a => {
-        a.addEventListener('click', function (e) {
-          if (!IS_AUTH && modal && nextInput) {
-            e.preventDefault();
-            nextInput.value = a.getAttribute('href') || '/';
-            // Asegura que la pestaña Login esté activa al abrir desde un enlace de perfil
-            const tabLoginBtn = document.getElementById('tab-login');
-            if (tabLoginBtn) new bootstrap.Tab(tabLoginBtn).show();
-            modal.show();
-          }
-        });
-      });
 
-      // Botón del banner que abre directamente la pestaña de Registro
-      const openSignupBtns = document.querySelectorAll('.open-signup');
-      openSignupBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const tabSignupBtn = document.getElementById('tab-signup');
-          if (tabSignupBtn) new bootstrap.Tab(tabSignupBtn).show();
-        });
-      });
-    });
-  </script>
 
-</body>
-
-<footer>
-  <small>© {{ year|default:"2025" }} • Demo Django</small>
-</footer>
-
-</html>
-{% endblock %}
