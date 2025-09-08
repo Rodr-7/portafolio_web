@@ -1,341 +1,85 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <!-- Meta básicos -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Perfil Profesional — Rodrigo Albornoz</title>
-    <meta name="description" content="Perfil profesional, experiencia, habilidades y contacto." />
+<!doctype html> <!-- Tipo de documento para HTML5 -->
+<html lang="es"> <!-- Idioma del documento -->
+<head>
+  <!-- Metas basicas para codificación y responsive -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil — Rodrigo Albornoz</title> <!-- Título de la pestaña -->
+  <!-- Bootstrap 5 CSS (solo estilos) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Un color de acento para botones -->
+  <style>:root{--accent:#0d6efd}</style>
+</head>
+<body class="bg-light"> <!-- Fondo claro general -->
 
-    <!-- Bootstrap 5 (CDN) -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+  <!-- ----------  Parte de Navbar ---------- -->
+<!-- Barra de navegación simple: marca a la izquierda y CTA a la derecha -->
+<nav class="navbar bg-white border-bottom">
+  <div class="container d-flex justify-content-between">
+    <a class="navbar-brand fw-semibold" href="#">Rodrigo Albornoz</a> <!-- Enlace/logo -->
+    <a class="btn btn-sm" style="background:var(--accent);color:#fff" href="#contacto">
+      Contactar
+    </a> <!-- Llama a la sección de contacto -->
+  </div>
+</nav>
 
-    <!-- Iconos opcionales (Bootstrap Icons) -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
 
-    <!-- Hoja de estilos propia -->
-    <link rel="stylesheet" href="css/estilos-perfil.css" />
-  </head>
-  <body class="bg-body">
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-nav sticky-top shadow-sm">
-      <div class="container">
-        <a class="navbar-brand fw-semibold" href="#">
-          <i class="bi bi-person-badge me-2"></i>Rodrigo Albornoz
-        </a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Menú">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMain">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
-            <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
-            <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
-            <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
-            <li class="nav-item"><a class="nav-link btn btn-sm btn-outline-accent ms-lg-3" href="#contacto">Contacto</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<!-- ---------- Sección principal con avatar y texto centrado ---------- -->
+<header class="py-5">
+  <div class="container text-center">
+    <img src=""
+         class="rounded-circle mb-3" alt="Foto de perfil"> <!-- Avatar circular -->
+    <h1 class="h3 mb-1">Rodrigo Albornoz</h1> <!-- Título principal -->
+    <p class="text-muted mb-3">Rol • Ciudad, País</p> <!-- Subtítulo -->
+    <div class="d-flex gap-2 justify-content-center">
+      <a class="btn" style="background:var(--accent);color:#fff" href="#proyectos">Ver proyectos</a>
+      <a class="btn btn-outline-primary" href="#" target="_blank" rel="">CV</a>
+    </div> <!-- Acciones principales -->
+  </div>
+</header>
 
-    <!-- HERO -->
-    <header class="hero d-flex align-items-center">
-      <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-12 col-lg-4 text-center">
-            <!-- Imagen de perfil -->
-            <img src="https://via.placeholder.com/220x220.png?text=Tu+Foto" class="rounded-4 shadow-sm img-fluid hero-avatar" alt="Foto de perfil" />
-          </div>
-          <div class="col-12 col-lg-8 text-center text-lg-start">
-            <span class="badge rounded-pill bg-accent-subtle text-accent fw-normal mb-3">Disponible para proyectos</span>
-            <h1 class="display-5 fw-semibold mb-2 text-title">Rodrigo Albornoz</h1>
-            <p class="lead text-muted mb-4">Cargo o Rol — Especialidad principal • Ciudad, País</p>
-            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
-              <a class="btn btn-accent" href="#contacto"><i class="bi bi-envelope me-2"></i>Contactar</a>
-              <a class="btn btn-outline-accent" href="#" target="_blank" rel="noopener">
-                <i class="bi bi-file-earmark-text me-2"></i>Descargar CV
-              </a>
-              <a class="btn btn-outline-secondary" href="#" target="_blank" rel="noopener">
-                <i class="bi bi-linkedin me-2"></i>LinkedIn
-              </a>
-              <a class="btn btn-outline-secondary" href="#" target="_blank" rel="noopener">
-                <i class="bi bi-github me-2"></i>GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+<!-- ---------- Bloque de presentación + lista de habilidades ---------- -->
+<section id="sobre-mi" class="py-4">
+  <div class="container">
+    <h2 class="h5 mb-3">Sobre mí</h2>
+    <p>Estudiante de Analista Programador en Inacap y futuro desarrollador Backend.<br>
+      Con especial interes en desarrollo web, Python, sistemas operativos Linux y ecositemas open source en general. 
+    </p>
+    <h3 class="h6 text-uppercase text-muted mt-4 mb-2">Habilidades</h3>
+    <div class="d-flex flex-wrap gap-2"> <!-- “chips” reutilizables -->
+      <span class="badge text-bg-secondary">Python</span>
+      <span class="badge text-bg-secondary">Linux</span>
+      <span class="badge text-bg-secondary">JavaScript</span>
+    </div>
+  </div>
+</section>
 
-    <!-- SOBRE MÍ -->
-    <section id="sobre-mi" class="py-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-12 col-lg-7">
-            <h2 class="section-title">Sobre mí</h2>
-            <p class="text-secondary">
-              Soy <strong>Rodrigo Albornoz</strong>, profesional con X años de experiencia en <em>tu área</em>. Me especializo en
-              <strong>tecnologías/herramientas clave</strong> y disfruto resolviendo problemas complejos con soluciones simples y elegantes.
-            </p>
-            <p class="text-secondary mb-0">
-              Mi enfoque combina buenas prácticas, comunicación efectiva y orientación a resultados. Busco oportunidades para aportar
-              valor en equipos dinámicos y proyectos de alto impacto.
-            </p>
-          </div>
-          <div class="col-12 col-lg-5">
-            <div class="card card-quiet shadow-sm">
-              <div class="card-body">
-                <h3 class="h5 mb-3">Datos rápidos</h3>
-                <ul class="list-unstyled mb-0">
-                  <li class="mb-2"><i class="bi bi-geo-alt me-2 text-accent"></i>Ciudad, País</li>
-                  <li class="mb-2"><i class="bi bi-mortarboard me-2 text-accent"></i>Formación o Certificaciones</li>
-                  <li class="mb-2"><i class="bi bi-translate me-2 text-accent"></i>Idiomas: Español (nativo), Inglés (B2)</li>
-                  <li class="mb-2"><i class="bi bi-clock-history me-2 text-accent"></i>Modalidad: Remoto / Híbrido / Presencial</li>
-                  <li class="mb-2"><i class="bi bi-building me-2 text-accent"></i>Sector: Tecnología / Consultoría / Otro</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- Formulario mínimo (no envía, solo maqueta visual) -->
+<section id="contacto" class="py-4">
+  <div class="container">
+    <h2 class="h5 mb-3">Contacto</h2>
+    <form class="row g-2">
+      <div class="col-md-6"><input class="form-control" type="text" placeholder="Nombre"></div>
+      <div class="col-md-6"><input class="form-control" type="email" placeholder="Correo"></div>
+      <div class="col-12"><textarea class="form-control" rows="3" placeholder="Mensaje"></textarea></div>
+      <div class="col-12"><button class="btn" style="background:var(--accent);color:#fff">Enviar</button></div>
+    </form>
+  </div>
+</section>
 
-    <!-- EXPERIENCIA -->
-    <section id="experiencia" class="py-5 bg-section">
-      <div class="container">
-        <h2 class="section-title">Experiencia</h2>
-        <div class="row g-4">
-          <!-- Item 1 -->
-          <div class="col-12">
-            <div class="timeline-item p-4 rounded-4 shadow-sm bg-white">
-              <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
-                <div>
-                  <h3 class="h5 mb-1">Puesto — Empresa</h3>
-                  <span class="text-muted small">Ene 2023 – Actualidad · Ciudad, País</span>
-                </div>
-                <span class="badge bg-accent-subtle text-accent">Tiempo completo</span>
-              </div>
-              <ul class="mt-3 mb-0 text-secondary">
-                <li>Responsabilidad o logro medible #1.</li>
-                <li>Responsabilidad o logro medible #2.</li>
-                <li>Stack: Tech A, Tech B, Tech C.</li>
-              </ul>
-            </div>
-          </div>
-          <!-- Item 2 -->
-          <div class="col-12">
-            <div class="timeline-item p-4 rounded-4 shadow-sm bg-white">
-              <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
-                <div>
-                  <h3 class="h5 mb-1">Puesto — Empresa</h3>
-                  <span class="text-muted small">May 2021 – Dic 2022 · Remoto</span>
-                </div>
-                <span class="badge bg-secondary-subtle text-secondary">Contrato</span>
-              </div>
-              <ul class="mt-3 mb-0 text-secondary">
-                <li>Responsabilidad o logro medible #1.</li>
-                <li>Responsabilidad o logro medible #2.</li>
-                <li>Stack: Tech D, Tech E.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- ---------- Pie de página con año dinámico ---------- -->
+<footer class="py-3 border-top">
+  <div class="container small text-center text-muted">
+    © <span id="anio"></span> Rodrigo Albornoz
+  </div>
+</footer>
 
-    <!-- HABILIDADES -->
-    <section id="habilidades" class="py-5">
-      <div class="container">
-        <h2 class="section-title">Habilidades</h2>
-        <div class="row g-4">
-          <div class="col-12 col-lg-6">
-            <div class="card card-quiet shadow-sm h-100">
-              <div class="card-body">
-                <h3 class="h6 text-uppercase text-muted mb-3">Técnicas</h3>
+<!-- Bootstrap JS (opcional para componentes interactivos como el navbar colapsable) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 
-                <!-- Ejemplo de barras de progreso elegantes -->
-                <div class="mb-3">
-                  <div class="d-flex justify-content-between"><span>HTML/CSS</span><span class="text-muted">90%</span></div>
-                  <div class="progress soft-progress" role="progressbar" aria-label="HTML/CSS" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar bg-accent" style="width: 90%"></div>
-                  </div>
-                </div>
-
-                <div class="mb-3">
-                  <div class="d-flex justify-content-between"><span>JavaScript</span><span class="text-muted">85%</span></div>
-                  <div class="progress soft-progress" role="progressbar" aria-label="JavaScript" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar bg-accent" style="width: 85%"></div>
-                  </div>
-                </div>
-
-                <div class="mb-0">
-                  <div class="d-flex justify-content-between"><span>Framework X</span><span class="text-muted">75%</span></div>
-                  <div class="progress soft-progress" role="progressbar" aria-label="Framework X" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar bg-accent" style="width: 75%"></div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-6">
-            <div class="card card-quiet shadow-sm h-100">
-              <div class="card-body">
-                <h3 class="h6 text-uppercase text-muted mb-3">Blandas</h3>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill bg-tag">Comunicación</span>
-                  <span class="badge rounded-pill bg-tag">Trabajo en equipo</span>
-                  <span class="badge rounded-pill bg-tag">Liderazgo</span>
-                  <span class="badge rounded-pill bg-tag">Gestión del tiempo</span>
-                  <span class="badge rounded-pill bg-tag">Adaptabilidad</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PROYECTOS -->
-    <section id="proyectos" class="py-5 bg-section">
-      <div class="container">
-        <h2 class="section-title">Proyectos destacados</h2>
-        <div class="row g-4">
-          <!-- Proyecto 1 -->
-          <div class="col-12 col-md-6 col-lg-4">
-            <article class="card project-card shadow-sm h-100">
-              <img src="https://picsum.photos/640/360?random=1" class="card-img-top" alt="Portada del proyecto 1" />
-              <div class="card-body">
-                <h3 class="h5">Proyecto Uno</h3>
-                <p class="text-secondary">Breve descripción del proyecto, objetivo y resultados clave.</p>
-                <div class="d-flex gap-2">
-                  <span class="badge bg-tag">React</span>
-                  <span class="badge bg-tag">API</span>
-                </div>
-              </div>
-              <div class="card-footer bg-transparent border-0 pt-0">
-                <a href="#" class="btn btn-sm btn-outline-accent">Ver detalle</a>
-              </div>
-            </article>
-          </div>
-
-          <!-- Proyecto 2 -->
-          <div class="col-12 col-md-6 col-lg-4">
-            <article class="card project-card shadow-sm h-100">
-              <img src="https://picsum.photos/640/360?random=2" class="card-img-top" alt="Portada del proyecto 2" />
-              <div class="card-body">
-                <h3 class="h5">Proyecto Dos</h3>
-                <p class="text-secondary">Descripción breve con foco en la solución técnica implementada.</p>
-                <div class="d-flex gap-2">
-                  <span class="badge bg-tag">Django</span>
-                  <span class="badge bg-tag">PostgreSQL</span>
-                </div>
-              </div>
-              <div class="card-footer bg-transparent border-0 pt-0">
-                <a href="#" class="btn btn-sm btn-outline-accent">Ver detalle</a>
-              </div>
-            </article>
-          </div>
-
-          <!-- Proyecto 3 -->
-          <div class="col-12 col-md-6 col-lg-4">
-            <article class="card project-card shadow-sm h-100">
-              <img src="https://picsum.photos/640/360?random=3" class="card-img-top" alt="Portada del proyecto 3" />
-              <div class="card-body">
-                <h3 class="h5">Proyecto Tres</h3>
-                <p class="text-secondary">Énfasis en métricas de impacto, performance o adopción.</p>
-                <div class="d-flex gap-2">
-                  <span class="badge bg-tag">Node.js</span>
-                  <span class="badge bg-tag">Docker</span>
-                </div>
-              </div>
-              <div class="card-footer bg-transparent border-0 pt-0">
-                <a href="#" class="btn btn-sm btn-outline-accent">Ver detalle</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="py-5">
-      <div class="container">
-        <h2 class="section-title">Contacto</h2>
-        <div class="row g-4">
-          <div class="col-12 col-lg-6">
-            <div class="card card-quiet shadow-sm h-100">
-              <div class="card-body">
-                <h3 class="h6 text-uppercase text-muted mb-3">Envíame un mensaje</h3>
-                <form>
-                  <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Rodrigo Albornoz" />
-                  </div>
-                  <div class="mb-3">
-                    <label for="correo" class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="correo" placeholder="nombre@dominio.com" />
-                  </div>
-                  <div class="mb-3">
-                    <label for="mensaje" class="form-label">Mensaje</label>
-                    <textarea id="mensaje" class="form-control" rows="4" placeholder="¿Cómo puedo ayudarte?"></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-accent">
-                    <i class="bi bi-send me-2"></i>Enviar
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-6">
-            <div class="card card-quiet shadow-sm h-100">
-              <div class="card-body">
-                <h3 class="h6 text-uppercase text-muted mb-3">Información</h3>
-                <ul class="list-unstyled mb-4">
-                  <li class="mb-2"><i class="bi bi-envelope-open me-2 text-accent"></i>tu.correo@dominio.com</li>
-                  <li class="mb-2"><i class="bi bi-telephone me-2 text-accent"></i>+56 9 1234 5678</li>
-                  <li class="mb-2"><i class="bi bi-link-45deg me-2 text-accent"></i>www.tuportafolio.com</li>
-                </ul>
-                <div class="d-flex gap-3">
-                  <a class="text-muted hover-accent" href="#" aria-label="LinkedIn"><i class="bi bi-linkedin fs-4"></i></a>
-                  <a class="text-muted hover-accent" href="#" aria-label="GitHub"><i class="bi bi-github fs-4"></i></a>
-                  <a class="text-muted hover-accent" href="#" aria-label="Twitter/X"><i class="bi bi-twitter-x fs-4"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="py-4 border-top">
-      <div class="container small text-center text-muted">
-        © <span id="anio"></span> Rodrigo Albornoz — Todos los derechos reservados
-      </div>
-    </footer>
-
-    <!-- Bootstrap JS (opcional) -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Script mínimo para año dinámico -->
-    <script>
-      document.getElementById('anio').textContent = new Date().getFullYear();
-    </script>
-  </body>
+<!-- Script para año dinámico del footer-->
+<script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+</body>
 </html>
 
