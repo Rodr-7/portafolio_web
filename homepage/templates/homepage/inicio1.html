@@ -1,0 +1,34 @@
+{% load static %} {# habilita la etiqueta {% static %} de Django #}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"> <!-- Define codificación de caracteres -->
+  <title>Equipo — Versión Básica</title> <!-- Título de la pestaña -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Hace que sea responsivo en celular -->
+  <!-- Enlazamos nuestro CSS -->
+  <link rel="stylesheet" href="{% static 'homepage/css/inicio.css' %}">
+</head>
+<body>
+  <!-- Cabecera simple -->
+  <header class="box">
+    <h1>Nuestro Equipo</h1> <!-- Título grande -->
+    <p class="sub">Perfiles para práctica</p> <!-- Subtítulo pequeño -->
+  </header>
+
+  <!-- Aquí irá el contenido principal -->
+  <main class="contenedor">
+    <!-- Div vacío donde se van a insertar las tarjetas con JS -->
+    <div id="grid" class="grid">
+      <!-- Las tarjetas se crean dinámicamente desde app.js -->
+    </div>
+  </main>
+
+  <!-- Pie de página simple -->
+  <footer class="box center">
+    <small>© 2025 — Estudiantes De Emilio Soto Rojas</small>
+  </footer>
+
+  <!-- Enlazamos nuestro archivo de JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

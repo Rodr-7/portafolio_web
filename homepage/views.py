@@ -14,6 +14,9 @@ def perfil(request):
 def perfil2(request):
     return render(request, "homepage/perfil2.html")
 
+def perfil3(request):
+    return render(request, "homepage/perfil3.html")
+
 def signup_view(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)

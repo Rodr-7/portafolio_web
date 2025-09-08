@@ -49,7 +49,7 @@
       <div class="card-body">
         <h5 class="card-title">Perfil de Ejemplo</h5>
         <p class="card-text text-secondary">Descripción breve del profesional.</p>
-        <a href="{% url 'perfil2' %}" class="btn btn-primary">Ir al perfil</a>
+        <a href="{% url 'perfil' %}" class="btn btn-primary">Ir al perfil</a>
       </div>
     </div>
   </div>
@@ -66,6 +66,17 @@
     </div>
   </div>
 
+   <!-- Tarjeta de perfil de ejemplo 3 -->
+  <div class="container mb-5">
+    <div class="card shadow-sm profile-card" style="max-width: 420px;">
+      <img src="{% static 'homepage/img/no-photo.webp' %}" class="card-img-top" alt="Foto de perfil">
+      <div class="card-body">
+        <h5 class="card-title">Perfil de Ejemplo</h5>
+        <p class="card-text text-secondary">Descripción breve del profesional.</p>
+        <a href="{% url 'perfil3' %}" class="btn btn-primary">Ir al perfil</a>
+      </div>
+    </div>
+  </div>
 
   <!-- NOTA: El enlace “Ir al perfil” se intercepta si no hay sesion y se abrira el modal en lugar de navegar.-->
   <!-- -------------      Modal único con pestañas para login/registro)        ------------- -->
