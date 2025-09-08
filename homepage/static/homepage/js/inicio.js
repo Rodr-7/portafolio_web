@@ -9,14 +9,6 @@ const perfiles = [
   },
 
   {
-    nombre: "Diego Cea",
-    cargo: "QA / Tester",
-    area: "Calidad",
-    email: "diego.cea@example.com",
-    bio: "Pruebas manuales y automatizadas. Aprendiendo Selenium."
-  },
-
-  {
     nombre: "Rodrigo Albornoz",
     cargo: "Diseñador UI",
     area: "Producto",
@@ -34,6 +26,10 @@ perfiles.forEach(function(p) {
   const card = document.createElement("article");
   card.className = "card"; // le damos la clase CSS
 
+// Genera un slug a partir del nombre
+  const slug = p.nombre.toLowerCase().replace(/\s+/g, '-');
+
+
   // Rellenamos el HTML interno de la tarjeta
   card.innerHTML = `
     <span class="area-pill">${p.area}</span>
@@ -41,16 +37,29 @@ perfiles.forEach(function(p) {
     <p class="cargo">${p.cargo}</p>
     <a class="email" href="mailto:${p.email}">${p.email}</a>
     <p class="bio">${p.bio}</p>
-    <button class="btn" type="button">Saludar</button>
+    <button class="btn saludar" type="button">Saludar</button>
+    <button class="btn perfil" type="button">Ver Perfil</button>
+
   `;
 
   // Seleccionamos el botón dentro de la tarjeta
-  const boton = card.querySelector(".btn");
+  const botonSaludar = card.querySelector(".saludar");
 
   // Agregamos un evento: cuando hagan clic, aparece un alert
-  boton.addEventListener("click", function() {
+  botonSaludar.addEventListener("click", function() {
     alert("Hola profe soy " + p.nombre + " 👋");
   });
+
+ // Botón Ver Perfil
+const botonPerfil = card.querySelector(".perfil");
+botonPerfil.addEventListener("click", function() {
+  if (p.nombre === "Yazmina Fuentes") {
+    window.location.href = "/perfil2/";
+  }
+  if (p.nombre === "Rodrigo Albornoz") {
+    window.location.href = "/perfil/";
+  }  
+});
 
   // Insertamos la tarjeta dentro del grid
   grid.appendChild(card);

@@ -1,0 +1,113 @@
+/* Reset básico para que los márgenes funcionen igual, //parte de yami */
+* { box-sizing: border-box; }
+
+/* Estilos generales del body */
+body {
+  margin: 0; /* Quitamos márgenes por defecto */
+  font-family: Arial, sans-serif; /* Fuente simple */
+  background: #f4f4f4; /* Fondo gris claro */
+  color: #333; /* Texto gris oscuro */
+}
+
+/* Clase para bloques con borde */
+.box {
+  background: #fff; /* Fondo blanco */
+  border: 1px solid #e6e6e6; /* Borde gris claro */
+  margin: 10px; /* Espacio exterior */
+  padding: 12px; /* Espacio interno */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+/* Estilo del título principal */
+header h1 { 
+  margin: 0 0 6px 0; 
+  font-size: 22px; 
+}
+.sub { 
+  margin: 0; 
+  color: #666; 
+  font-size: 14px; 
+}
+.center { text-align: center; }
+
+/* Contenedor para centrar y limitar ancho */
+.contenedor { 
+  max-width: 980px; 
+  margin: 0 auto; 
+}
+
+/* Grilla para mostrar varias tarjetas */
+.grid {
+  display: grid; /* Activa grid */
+  grid-template-columns: 1fr; /* Una sola columna en celular */
+  gap: 12px; /* Espacio entre tarjetas */
+}
+@media (min-width: 680px) {
+  /* Cuando la pantalla es grande, mostrar 3 columnas */
+  .grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+/* Estilo de cada tarjeta de perfil */
+.card {
+  background: #f0eaea;
+  border: 1px solid #b1afaf;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+/* Etiqueta de área tipo "pastilla" */
+.area-pill {
+  display: inline-block;
+  background: #eef6ff; /* Azul muy claro */
+  color: #1565c0; /* Azul fuerte */
+  border: 1px solid #dbeafe;
+  padding: 4px 8px;
+  border-radius: 999px; /* Hace que sea redonda */
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* Nombre del perfil */
+.card h3 {
+  margin: 6px 0 2px 0;
+  font-size: 18px;
+}
+
+/* Cargo en gris más pequeño */
+.cargo { 
+  color: #5c5c5c; 
+  font-size: 14px; 
+  margin: 0 0 8px 0; 
+}
+
+/* Enlace al email */
+.email {
+  color: #1565c0; /* Azul */
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+/* Descripción corta */
+.bio { 
+  font-size: 14px; 
+  line-height: 1.5; 
+}
+
+/* Botón negro simple */
+.btn {
+  display: inline-block;
+  background: #111; /* Negro */
+  color: #fff; /* Blanco */
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.btn:hover { 
+  opacity: .92; /* Un poco más claro al pasar el mouse */
+  cursor: pointer; 
+}
